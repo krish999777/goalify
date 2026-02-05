@@ -1,0 +1,23 @@
+*{
+    margin:0;
+    padding:0;
+}
+nav{
+    display:flex;
+    align-items:Center;
+    box-shadow:0 0 1px black;
+}
+nav>a{
+    text-decoration:none;
+    color:black;
+    margin:20px;
+    font-size:20px;
+}
+nav>a:hover{
+    text-decoration:underline;
+}
+.logo{
+    font-family:'karla';
+    font-weight:bold;
+    font-size:40px;
+}
