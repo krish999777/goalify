@@ -5,7 +5,7 @@ export default function({handleSubmit,toggleNewBoard,setData}){
     let subjectInputSubjectsArray=[]
     for(let i=1;i<=newBoardSubjectCount;i++){
         subjectInputSubjectsArray.push(
-            <div key={i}>
+            <div className="input" key={i}>
                 <label htmlFor={`board-name-${i}`}>Subject {i} name</label>
                 <input autoComplete="off" name={`board-name-${i}`} id={`board-name-${i}`} type="text" required={true}/>
             </div>
@@ -49,20 +49,30 @@ export default function({handleSubmit,toggleNewBoard,setData}){
 
     }
     return(
-         <div className="new-board-container">
+         <div 
+         className="new-board-container" 
+         onClick={(e) => {
+            if (e.target === e.currentTarget) {
+                toggleNewBoard()
+            }
+        }}>
             <form onSubmit={handleSubmit}>
-                <div>
-                    <label htmlFor="board-name">Board name</label>
-                    <input name="board-name"id="board-name" type="text"required={true} autoComplete="off" />
+                 <div className="form-scroll-area">
+                    <div className="input">
+                        <label htmlFor="board-name">Board name</label>
+                        <input name="board-name"id="board-name" type="text"required={true} autoComplete="off" />
+                    </div>
+                    <div className="input">
+                        <label htmlFor="subjects-count">Number of Subjects</label>
+                        <input autoComplete="off" name="subject-count" onChange={boardSubjectCountSetter} id="subjects-count"type="number" min="1" max="50"defaultValue="1" required={true} />
+                    </div>
+                    {subjectInputSubjectsArray}
                 </div>
-                <div>
-                    <label htmlFor="subjects-count">Number of Subjects</label>
-                    <input autoComplete="off" name="subject-count" onChange={boardSubjectCountSetter} id="subjects-count"type="number" min="1" max="50"defaultValue="1" required={true} />
+                <div className="button-group">
+                    <button className="submit-btn">Create Board</button>
+                    <button className="cancel" type="button" onClick={toggleNewBoard}>Cancel</button>
                 </div>
-                {subjectInputSubjectsArray}
-                <button>Create Board</button>
             </form>
-            <button onClick={toggleNewBoard}>Cancel</button>
         </div>
     )
 }

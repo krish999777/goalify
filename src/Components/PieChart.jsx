@@ -11,16 +11,16 @@ export default function({pending,done,started}){
     const data = {
     labels: [
         'Pending',
-        'Done',
-        'Started'
+        'Started',
+        'Done'
     ],
     datasets: [{
         label: 'Progress',
-        data: [pending, done, started],
+        data: [pending, started, done],
         backgroundColor: [
-        'rgb(255, 99, 132)',
-        'rgb(54, 162, 235)',
-        'rgb(255, 205, 86)'
+        '#6B7280',
+        '#F59E0B',
+        '#10B981'
         ],
         hoverOffset: 4
     }]

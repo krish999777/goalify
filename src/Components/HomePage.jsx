@@ -6,7 +6,7 @@ export default function({toggleNewBoard,setData,data}){
         return(
             <div className="no-boards-container">
                 <h1>No Boards yet. Create new Board?</h1>
-                <button onClick={toggleNewBoard}>New Board</button>
+                <button className="new-board-btn" onClick={toggleNewBoard}>New Board</button>
             </div>
         )
     }
@@ -54,7 +54,18 @@ export default function({toggleNewBoard,setData,data}){
                 <div className="each-board">
                     <div className="title">{board.name}</div>
                     <div className="all-subjects">
-                        {board.subjects.map((sub,index)=>{
+                        {board.subjects.length>5?
+                        board.subjects.map((sub,index)=>{
+                            return(
+                                index<=4?
+                                <div key={index} className="each-subject">
+                                    {sub.name}
+                                </div>
+                                :
+                                ''
+                            )
+                        }):
+                        board.subjects.map((sub,index)=>{
                             return(
                                 <div key={index} className="each-subject">
                                     {sub.name}
@@ -68,28 +79,45 @@ export default function({toggleNewBoard,setData,data}){
     })
     return(
         <div className="homepage">
-            <Link to="/planner">Planner</Link>
-            <Link to="/calendar">Calender</Link>
-            <button onClick={toggleNewBoard}>New Board</button>
-            <button onClick={()=>{
-                setData([])
-            }}>Clear Local Storage</button>
-            <div className="total-counts">
-                <div className="total-boards-count">Total Boards={data.length}</div>
-                <div className="total-subjects-count">Total Subjects={totalSubjects}</div>
-                <div className="total-done-count">Total Done={totalDone}</div>
-                <div className="total-started-count">Total Started={totalStarted}</div>
-                <div className="total-pending-count">Total Pending={totalPending}</div>
+            <div className="homepage-buttons-container">
+                <button className="new-board-btn" onClick={toggleNewBoard}>New Board</button>
+                <button  className="clear-local-btn" onClick={()=>setData([])}>Clear Local Storage</button>
+                <Link className="homepage-navlinks btn-primary"to="/planner">Go To Planner</Link>
+                <Link className="homepage-navlinks btn-primary"to="/calendar">Go To Calender</Link>
             </div>
-            <div>
+            <div className="total-counts">
+                <div className="total-boards-count">
+                    <div className="title">Total Boards</div>
+                    <div className="value">{data.length}</div>
+                </div>
+                <div className="total-subjects-count">
+                    <div className="title">Total Subjects</div>
+                    <div className="value">{totalSubjects}</div>
+                </div>
+                <div className="total-done-count">
+                    <div className="title">Total Subjects Completed</div>
+                    <div className="value">{totalDone}</div>
+                </div>
+                <div className="total-started-count">
+                    <div className="title">Total Subjects Started</div>
+                    <div className="value">{totalStarted}</div>
+                </div>
+                <div className="total-pending-count">
+                    <div className="title">Total Subjects Pending</div>
+                    <div className="value">{totalPending}</div>
+                </div>
+            </div>
+            <div className="all-boards">
                 {displayBoards}
             </div>
-            <Pie pending={totalPending} done={totalDone} started={totalStarted}/>
             <div className="in-progress-container">
-                <div>Currently in progress:</div>
+                <div className="title">Currently in progress:</div>
                 <div className="in-progress-subjects">
                     {inProgressData}
                 </div>
+            </div>
+            <div className="pie-chart">
+                <Pie pending={totalPending} done={totalDone} started={totalStarted}/>
             </div>
         </div>
     )
