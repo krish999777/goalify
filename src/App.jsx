@@ -21,12 +21,12 @@ export default function(){
         <BrowserRouter>
             <Navbar/>
                 <Routes>
-                    <Route context={{data,setData}} path="/" element={<Home data={data} setData={setData}/>}/>
-                    <Route context={{data,setData}} path="/planner" element={<Planner data={data} setData={setData}/>}/>
-                    <Route context={{data,setData}} path="/calendar" element={<Calender data={data} setData={setData}/>}/>
-                    <Route context={{data,setData}} path="/analysis" element={<Analysis data={data} setData={setData}/>}/>
-                    <Route context={{data,setData}} path="/share" element={<Share data={data} setData={setData}/>}/>
-                    <Route context={{data,setData}} path="/boards/:id" element={<Board/>}/>
+                    <Route path="/" element={<Home data={data} setData={setData}/>}/>
+                    <Route path="/planner" element={<Planner data={data} setData={setData}/>}/>
+                    <Route path="/calendar" element={<Calender data={data} setData={setData}/>}/>
+                    <Route path="/analysis" element={<Analysis data={data} setData={setData}/>}/>
+                    <Route path="/share" element={<Share data={data} setData={setData}/>}/>
+                    <Route path="/boards/:id" element={<Board data={data} setData={setData}/>}/>
                 </Routes>
         </BrowserRouter>
     )

@@ -17,21 +17,21 @@ export default function({toggleNewBoard,setData,data}){
         return acc+board.subjects.reduce((acc,sub)=>{
             if(sub.status==='pending')
                 return acc+1
-            return 0
+            return acc
         },0)
     },0)
     const totalDone=data.reduce((acc,board)=>{
         return acc+board.subjects.reduce((acc,sub)=>{
             if(sub.status==='done')
                 return acc+1
-            return 0
+            return acc
         },0)
     },0)
     const totalStarted=data.reduce((acc,board)=>{
         return acc+board.subjects.reduce((acc,sub)=>{
             if(sub.status==='started')
                 return acc+1
-            return 0
+            return acc
         },0)
     },0)
     const inProgress=[]

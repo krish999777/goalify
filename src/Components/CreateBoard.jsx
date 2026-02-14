@@ -35,11 +35,13 @@ export default function({handleSubmit,toggleNewBoard,setData}){
             return
         }
         setData(prevData=>[...prevData,{
-            id:prevData.length>0?prevData[prevData.length-1].id+1:1,
+            id:prevData.length > 0
+                ? Math.max(...prevData.map(b => b.id)) + 1
+                : 1,
             name:finalFormData[0],
             subjects:([...finalFormData].slice(2)).map((sub,index)=>{
                 return {
-                    id:index,
+                    id:index+1,
                     name:sub,
                     status:'pending',
                 }
