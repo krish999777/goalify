@@ -130,12 +130,16 @@ export default function({data,setData}){
     if(isAddBoard){
         return(
             <>
-                <form onSubmit={addSubject}>
+            <div className="add-subject-container">
+                <form className="add-subject-form" onSubmit={addSubject}>
                     <label htmlFor="subject-name">Subject name</label>
                     <input autoComplete="off" name="subject-name" id="subject-name" type="text" required={true}/>
-                    <button>Add Subject</button>
-                    <button type="button" onClick={toggleIsAddBoard}>Cancel</button>
+                    <div className="button-row">
+                        <button className="submit-subjects-btn">Add Subject</button>
+                        <button className="cancel-subject-btn"type="button" onClick={toggleIsAddBoard}>Cancel</button>
+                    </div>
                 </form>
+            </div>
             </>
         )
     }
@@ -211,48 +215,59 @@ export default function({data,setData}){
     }
     return(
         <>
-        <button className="add-subject" onClick={toggleIsAddBoard}>Add subject</button>
-        <Link to="/">Back to Home</Link>
         <div className="each-board-details">
+            <div className="board-name">{board.name}</div>
+            <div className='btn-container-board'>
+                <Link className="home-link" to="/">Back to Home</Link>
+                <button className="add-subject btn-primary" onClick={toggleIsAddBoard}>Add subject</button>
+                <button className="btn-primary" onClick={()=>setFilter('name')}>Filter by Name</button>
+                <button className="btn-primary" onClick={()=>setFilter('status')}>Filter by Status</button>
+            </div>
+            <div className="all-stats-board">
+                <div className="total-subjects">
+                    <div className="title">Total Subjects</div>
+                    <div className="value">{totalSubjects}</div>
+                </div>
+                <div className="progress">
+                    <div className="title">Progress</div>
+                    <div className="value">{progress}%</div>
+                </div>
+            </div>
             {totalSubjects===totalDone?
-            <div>All subjects completed</div>:''}
-            <div className="board name">{board.name}</div>
-            <button onClick={()=>setFilter('name')}>Filter by Name</button>
-            <button onClick={()=>setFilter('status')}>Filter by Status</button>
-            <div className="total-subjects">
-                <div className="title">Total Subjects</div>
-                <div className="value">{totalSubjects}</div>
-            </div>
-            <div className="progress">
-                <div className="title">Progress</div>
-                <div className="value">{progress}%</div>
-            </div>
+            <div className="all-subjects-completed">All subjects completed</div>:''}
             <div className="subjects">
-                {board.subjects.map((sub,ind)=>{
+                {board.subjects.map(sub=>{
                     return(
-                        <div key={sub.id} className="each-subject">
+                        <div key={sub.id} className={`each-subject-board ${sub.status}`}>
                             {editing===sub.id?
                             <div>
                                 <form className="subject-edit" onSubmit={onEdit}>
                                     <input autoComplete='off' name='edit' type='text' defaultValue={sub.name}/>
-                                    <button type='button' onClick={()=>setEditing(null)}>Cancel</button>
-                                    <button>Save</button>
+                                    <div>
+                                        <button className="btn-primary">Save</button>
+                                        <button className="btn-secondary" type='button' onClick={()=>setEditing(null)}>Cancel</button>
+                                    </div>
                                 </form>
                             </div>
                             :
-                            <><div style={{backgroundColor:sub.status==='pending'?'#6B7280':sub.status==='started'?'#F59E0B':'#10B981',width:'20px',height:'20px'}}/><div className="name">{sub.name}</div>
+                            <>
+                            <div className={`name ${sub.status}`}>{sub.name}</div>
                             <select defaultValue={sub.status} onChange={(e)=>statusChange(sub.id,e.target.value)} name='status'>
                                 <option value='pending'>Pending</option>
                                 <option value='started'>Started</option>
                                 <option value='done'>Done</option>
                             </select>
-                            <button onClick={()=>setEdit(sub.id)}>Edit</button>
-                            <button onClick={()=>deleteSubject(sub.id)}>Delete</button></>}
+                            <div>
+                                <button className="btn-secondary" onClick={()=>setEdit(sub.id)}>Edit</button>
+                                <button className="btn-secondary del" onClick={()=>deleteSubject(sub.id)}>Delete</button>
+                            </div>
+                            </>
+                            }
                         </div>
                     )
                 })}
             </div>
-            <button onClick={deleteBoard}>Delete Board</button>
+            <button className="btn-primary delete-btn" onClick={deleteBoard}>Delete Board</button>
         </div>
         </>
     )

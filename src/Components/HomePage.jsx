@@ -110,12 +110,12 @@ export default function({toggleNewBoard,setData,data}){
             <div className="all-boards">
                 {displayBoards}
             </div>
-            <div className="in-progress-container">
+            {inProgress.length>0?<div className="in-progress-container">
                 <div className="title">Currently in progress:</div>
                 <div className="in-progress-subjects">
                     {inProgressData}
                 </div>
-            </div>
+            </div>:''}
             <div className="pie-chart">
                 <Pie pending={totalPending} done={totalDone} started={totalStarted}/>
             </div>
