@@ -81,7 +81,7 @@ export default function({toggleNewBoard,setData,data}){
         <div className="homepage">
             <div className="homepage-buttons-container">
                 <button className="new-board-btn" onClick={toggleNewBoard}>New Board</button>
-                <button  className="clear-local-btn" onClick={()=>setData([])}>Clear Local Storage</button>
+                {/* <button  className="clear-local-btn" onClick={()=>setData([])}>Clear Local Storage</button> */}
                 <Link className="homepage-navlinks btn-primary"to="/planner">Go To Planner</Link>
                 <Link className="homepage-navlinks btn-primary"to="/calendar">Go To Calender</Link>
             </div>

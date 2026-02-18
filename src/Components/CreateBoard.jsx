@@ -34,19 +34,24 @@ export default function({handleSubmit,toggleNewBoard,setData}){
             alert('Enter valid input')
             return
         }
-        setData(prevData=>[...prevData,{
-            id:prevData.length > 0
+        setData(prevData=>{
+            const boardId=prevData.length > 0
                 ? Math.max(...prevData.map(b => b.id)) + 1
-                : 1,
+                : 1
+            return [...prevData,{
+            id:boardId,
             name:finalFormData[0],
             subjects:([...finalFormData].slice(2)).map((sub,index)=>{
                 return {
                     id:index+1,
                     name:sub,
                     status:'pending',
+                    boardId:boardId,
+                    priority:'medium',
+                    dueDate:null
                 }
             })
-        }])
+        }]})
         toggleNewBoard()
 
     }

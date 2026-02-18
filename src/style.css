@@ -321,6 +321,11 @@ nav>a:hover{
     align-items:center;
     justify-content:center;
 }
+.filter-container-board{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
 .add-subject{
     padding:10px;
     font-size:medium;
@@ -398,6 +403,7 @@ nav>a:hover{
     margin:20px;
     background-color:white;
     padding:40px;
+    padding-bottom:20px;
     border-radius:8px;
 }
 .each-subject-board.pending{
@@ -410,8 +416,12 @@ nav>a:hover{
     background-color:var(--done)
 }
 .each-subject-board>.name{
+    display:flex;
     font-weight:bold;
     font-size:30px;
+    gap:10px;
+    align-items:center;
+    margin-bottom:10px;
 }
 .del{
     background-color:red;
@@ -421,6 +431,14 @@ nav>a:hover{
     background-color:rgb(188, 0, 0);
 }
 .each-subject-board>select{
+    background-color:var(--primary-light);
+    padding:5px;
+    border:none;
+    border-radius:8px;
+    margin:5px;
+    cursor:pointer;
+}
+.board-select{
     background-color:var(--primary-light);
     padding:5px;
     border:none;
@@ -511,4 +529,13 @@ nav>a:hover{
 }
 .cancel-subject-btn{
   background: #f3f4f6;
+}
+.status-subjects-planner{
+    display:Flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    padding:10px 100px;
+}
+.title-stats-planner{
+    text-align:center;
 }
