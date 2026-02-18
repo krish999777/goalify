@@ -539,3 +539,9 @@ nav>a:hover{
 .title-stats-planner{
     text-align:center;
 }
+.stats-planner-container{
+    background-color:white;
+    border:1px solid var(--border);
+    padding-top:20px;
+    margin:50px 100px;
+}

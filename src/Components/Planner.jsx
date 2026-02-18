@@ -123,7 +123,7 @@ export default function({data,setData}){
             ''
             :
             (
-                <div>
+                <div className="stats-planner-container">
                     <h1 className="title-stats-planner">Overdue Subjects</h1>
                     <div className="overdue-subjects status-subjects-planner">
                             {overDueSubjects.map(sub=>{
@@ -166,7 +166,7 @@ export default function({data,setData}){
             ''
             :
             (
-            <div>
+            <div className="stats-planner-container">
                 <h1 className="title-stats-planner">Due Today</h1>
                 <div className="due-today-subjects status-subjects-planner">
                     {dueTodaySubjects.map(sub=>{
@@ -209,7 +209,7 @@ export default function({data,setData}){
             ''
             :
             (
-            <div>
+            <div className="stats-planner-container">
                 <h1 className="title-stats-planner">Upcoming Subjects</h1>
                 <div className="upcoming-subjects status-subjects-planner">
                     {upcomingSubjects.map(sub=>{
@@ -252,7 +252,7 @@ export default function({data,setData}){
             ''
             :
             (
-            <div>
+            <div className="stats-planner-container">
                 <h1 className="title-stats-planner">Subjects with no due date</h1>
                 <div className="priority-subjects status-subjects-planner">
                     {prioritySubjects.map(sub=>{
@@ -292,14 +292,16 @@ export default function({data,setData}){
             }
             {backlogSubjects.length===0?''
             :
-            <button className="btn-primary" 
-            onClick={()=>setShowBacklogSubjects(prev=>!prev)}>
-                {showBacklogSubjects?'Hide':'Show'} backlog subjects
-            </button>
+            <div style={{display:'flex',justifyContent:'center'}}>
+                <button className="btn-primary" 
+                onClick={()=>setShowBacklogSubjects(prev=>!prev)}>
+                    {showBacklogSubjects?'Hide':'Show'} backlog subjects
+                </button>
+            </div>
             }
             {showBacklogSubjects
             ?
-                <div>
+                <div className="stats-planner-container">
                     <h1 className="title-stats-planner">Backlog Subjects</h1>
                     <div className="backlog-subjects status-subjects-planner">
                         {backlogSubjects.map(sub=>{
@@ -341,14 +343,16 @@ export default function({data,setData}){
             <br/>
             {doneSubjects.length===0?''
             :
-            <button className="btn-primary" 
-            onClick={()=>setShowCompletedSubjects(prev=>!prev)}>
-                {showCompletedSubjects?'Hide':'Show'} completed subjects
-            </button>
+            <div style={{display:'flex',justifyContent:'center', marginBottom:showCompletedSubjects?'0':'100px'}}>
+                <button className="btn-primary"
+                onClick={()=>setShowCompletedSubjects(prev=>!prev)}>
+                    {showCompletedSubjects?'Hide':'Show'} completed subjects
+                </button>
+            </div>
             }
             {showCompletedSubjects
             ?
-                <div>
+                <div className="stats-planner-container">
                     <h1 className="title-stats-planner">Completed Subjects</h1>
                     <div className="completed-subjects status-subjects-planner">
                         {doneSubjects.map(sub=>{
