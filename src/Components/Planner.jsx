@@ -116,6 +116,7 @@ export default function({data,setData}){
         <div>
             <div style={{margin:'20px 0',display:'flex',justifyContent:'center'}}>
                 <Link to="/" className="btn-primary">Back to Home</Link>
+                <Link to="/calendar" className="btn-primary">Go to Calendar</Link>
             </div>
             {overDueSubjects.length===0
             ?
