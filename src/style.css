@@ -545,3 +545,31 @@ nav>a:hover{
     padding-top:20px;
     margin:50px 100px;
 }
+.calender-each-day{
+    border:1px solid var(--border);
+    padding:10px;
+    font-weight:bold;
+}
+.calender-each-day>.today{
+    background-color:var(--primary);
+    padding:5px;
+    border-radius:50%;
+    color:white;
+}
+.full-calender{
+    display:grid;
+    grid-template-columns:repeat(7,1fr);
+    grid-template-rows:repeat(7,88px);
+    margin:20px 100px;
+}
+.calender-current-month{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-weight:bold;
+    margin:20px;
+}
+.calender-current-month>div{
+    width:150px;
+    text-align:center;
+}

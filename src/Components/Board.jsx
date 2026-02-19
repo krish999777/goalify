@@ -358,7 +358,7 @@ export default function({data,setData}){
                                     <option value='high'>High</option>
                                 </select>
                             </div>
-                            Due Date:<input type="date" className="board-select" defaultValue={sub.dueDate}  onChange={(e)=>setDueData(sub.id,e.target.value)} name='due-date'/>
+                            Due Date:<input type="date" className="board-select" defaultValue={sub.dueDate} min={today} onChange={(e)=>setDueData(sub.id,e.target.value)} name='due-date'/>
                             <div>
                                 <button className="btn-secondary" onClick={()=>setEdit(sub.id)}>Edit</button>
                                 <button className="btn-secondary del" onClick={()=>deleteSubject(sub.id)}>Delete</button>
