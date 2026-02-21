@@ -11,7 +11,6 @@ export default function(){
             <NavLink style={({isActive})=>isActive?activeStyle:{}} end to="/"><div className="logo">Goalify</div></NavLink>
             <NavLink style={({isActive})=>isActive?activeStyle:{}}to="/planner">Planner</NavLink>
             <NavLink style={({isActive})=>isActive?activeStyle:{}}to="/calendar">Calendar</NavLink>
-            <NavLink style={({isActive})=>isActive?activeStyle:{}}to="/analysis">Analysis</NavLink>
             <NavLink style={({isActive})=>isActive?activeStyle:{}}to="/share">Share</NavLink>
         </nav>
     )
