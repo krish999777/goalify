@@ -424,11 +424,11 @@ nav>a:hover{
     margin-bottom:10px;
 }
 .del{
-    background-color:red;
+    background-color:var(--danger);
     color:white;
 }
 .del:hover{
-    background-color:rgb(188, 0, 0);
+    background-color:var(--danger-hover);
 }
 .each-subject-board>select{
     background-color:var(--primary-light);
@@ -464,12 +464,12 @@ nav>a:hover{
     height:40px;
 }
 .delete-btn{
-    background-color:red;
+    background-color:var(--danger);
     display:block;
     margin:10px auto;
 }
 .delete-btn:hover{
-    background-color:rgb(188, 0, 0);
+    background-color:var(--danger-hover);
 }
 .add-subject-form {
   background: #ffffff;
@@ -641,4 +641,153 @@ nav>a:hover{
     color: #6B7280;
     padding: 20px;
     font-style: italic;
+}
+.delete-everything-btn{
+    background-color:var(--danger);
+    color:white;
+    padding:10px;
+    border-radius:20px;
+    border:none;
+    margin:10px;
+    font-size:medium;
+    cursor:pointer;
+}
+.delete-everything-btn:hover{
+    background-color:var(--danger-hover);
+    color:white;
+}
+
+.share-page {
+  min-height: 100vh;
+  background-color: #f1f5f9;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 60px 20px;
+  box-sizing: border-box;
+}
+
+.share-container {
+  width: 100%;
+  max-width: 520px;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 40px 36px;
+  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.share-title {
+  text-align: center;
+  font-size: 26px;
+  font-weight: 600;
+  color: #0f172a;
+  margin-bottom: 8px;
+}
+
+
+.share-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.share-section:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+
+.section-title {
+  font-size: 18px;
+  font-weight: 500;
+  color: #1e293b;
+}
+
+.section-desc {
+  font-size: 14px;
+  color: #64748b;
+  line-height: 1.4;
+}
+.file-upload {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  width: fit-content;
+}
+
+.file-input {
+  display: none;
+}
+.file-label {
+  padding: 10px 16px;
+  border-radius: 8px;
+  background-color: #f8fafc;
+  border: 1px solid #cbd5e1;
+  font-size: 14px;
+  font-weight: 500;
+  color: #334155;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.file-label:hover {
+  background-color: #e2e8f0;
+  border-color: #94a3b8;
+}
+
+
+.danger-section {
+  background-color: #fef2f2;
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid #fecaca;
+}
+
+
+.danger-title {
+  color: #991b1b;
+}
+
+.danger-desc {
+  color: #7f1d1d;
+}
+
+.delete-everything-btn {
+  background-color: #dc2626;
+  color: #ffffff;
+  padding: 12px 18px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  width: fit-content;
+}
+
+.delete-everything-btn:hover {
+  background-color: #b91c1c;
+  transform: translateY(-1px);
+}
+
+.delete-everything-btn:active {
+  transform: translateY(0);
+}
+.backup-btn{
+    background-color: #2563eb;
+    color: #ffffff;
+    padding: 12px 18px;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    width: fit-content;
 }

@@ -4,7 +4,7 @@ import Home from './Components/Home'
 import Navbar from './Components/Navbar'
 import Planner from './Components/Planner'
 import Calender from './Components/Calender'
-import Share from './Components/Share'
+import Backup from './Components/Backup'
 import Board from './Components/Board'
 
 export default function(){
@@ -23,7 +23,7 @@ export default function(){
                     <Route path="/" element={<Home data={data} setData={setData}/>}/>
                     <Route path="/planner" element={<Planner data={data} setData={setData}/>}/>
                     <Route path="/calendar" element={<Calender data={data} setData={setData}/>}/>
-                    <Route path="/share" element={<Share data={data} setData={setData}/>}/>
+                    <Route path="/Backup" element={<Backup data={data} setData={setData}/>}/>
                     <Route path="/boards/:id" element={<Board data={data} setData={setData}/>}/>
                 </Routes>
         </BrowserRouter>
